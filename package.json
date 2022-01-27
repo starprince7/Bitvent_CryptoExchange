@@ -1,0 +1,24 @@
+{
+  "name": "exchange",
+  "version": "1.0.0",
+  "description": "Web application for the exchanging of listed  cryptocurrencies.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Exchange",
+    "Crypto",
+    "Currency"
+  ],
+  "author": "Nweke Prince Agezichukwu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.8"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "dotenv": "^14.3.2"
+  }
+}
