@@ -40,61 +40,66 @@ function Step1({ previousStep, goToStep, nextStep, complete, crypto, fetchCrypto
 
         // Set Price for a selected coin currency.
         if (coin_name === 'BTC') {
-            const BTC = crypto?.find(coin => coin.base === 'BTC')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'BTC')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
         }
         if (coin_name === 'ETH') {
-            const BTC = crypto?.find(coin => coin.base === 'ETH')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'ETH')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
+        }
+        if (coin_name === 'USDT') {
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'USDT')
+            console.log(BTC)
+            setCoinPrice(BTC.USD.PRICE)
         }
         if (coin_name === 'LTC') {
-            const BTC = crypto?.find(coin => coin.base === 'LTC')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'LTC')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
         }
         if (coin_name === 'BNB') {
-            const BTC = crypto?.find(coin => coin.base === 'BNB')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'BNB')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
         }
         if (coin_name === 'SOL') {
-            const BTC = crypto?.find(coin => coin.base === 'SOL')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'SOL')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
         }
         if (coin_name === 'DOGE') {
-            const BTC = crypto?.find(coin => coin.base === 'DOGE')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'DOGE')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
         }
         if (coin_name === 'XRP') {
-            const BTC = crypto?.find(coin => coin.base === 'XRP')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'XRP')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
         }
         if (coin_name === 'SHIB') {
-            const BTC = crypto?.find(coin => coin.base === 'SHIB')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'SHIB')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
         }
         if (coin_name === 'ADA') {
-            const BTC = crypto?.find(coin => coin.base === 'ADA')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'ADA')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
         }
         if (coin_name === 'MATIC') {
-            const BTC = crypto?.find(coin => coin.base === 'MATIC')
+            const BTC = crypto?.find(coin => coin.USD.FROMSYMBOL === 'MATIC')
             console.log(BTC)
-            setCoinPrice(BTC.price)
+            setCoinPrice(BTC.USD.PRICE)
         }
     }, [coin_name])
 
 
     useEffect(() => {
-        const optionList = crypto && crypto.map(coin => (
-            <option key={coin.base} value={coin.base}>{ coin.base  }</option>
+        const optionList = crypto && crypto.map((coin, index) => (
+            <option key={index} value={coin.USD.FROMSYMBOL}>{ coin.USD.FROMSYMBOL  }</option>
         ))
         setOptionTag(optionList)
     }, [crypto])
@@ -105,7 +110,7 @@ function Step1({ previousStep, goToStep, nextStep, complete, crypto, fetchCrypto
             <div className="form-group">
                 <div className="d-flex justify-content-between">
                     <label className="mr-sm-2">Currency</label>
-                    <label className="mr-sm-2">Amount</label>
+                    <label className="mr-sm-2">Amount ($)</label>
                 </div>
                 {/* Select-Tag Group Start */}
                 <div className="input-group mb-3">
@@ -113,7 +118,7 @@ function Step1({ previousStep, goToStep, nextStep, complete, crypto, fetchCrypto
                         onChange={(e) => setCoinName(e.target.value)}>
                         { option_tag }
                     </select>
-                    <input type="number" name="usd_amount" className="form-control" value={amount}
+                    <input type="number" name="usd_amount" className="form-control text-right" value={amount}
                         placeholder='0.00 USD'
                         onChange={(e) => setAmount(e.target.value)}
                     />
@@ -124,7 +129,7 @@ function Step1({ previousStep, goToStep, nextStep, complete, crypto, fetchCrypto
             <div className="form-group">
                 <label className="mr-sm-2">Wallet Address</label>
                 <div className="input-group mb-3">
-                    <input type="text" name="usd_amount" className="form-control" placeholder="Paste address here" />
+                    <input type="text" name="usd_amount" className="form-control" placeholder="Paste address here" required />
                 </div>
                 <div className="d-flex justify-content-between mt-5 align-items-center">
                     <h6 className="mb-0">Summary</h6>

@@ -9,7 +9,7 @@ function SellCrypto() {
     
     return (
         <ViewFlow
-            initialStep="4"
+            initialStep="1"
         >
             <Step id="1">
                 <Step1 />

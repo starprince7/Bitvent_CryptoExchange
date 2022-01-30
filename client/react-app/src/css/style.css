@@ -9001,6 +9001,7 @@ button,
   border-radius: 20px;
   background: #ffffff;
   height: 570px;
+  overflow: auto;
   min-width: 450px; 
 } @media only screen and (max-width: 576px) {
   .intro-form-exchange {

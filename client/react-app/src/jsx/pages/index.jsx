@@ -44,17 +44,20 @@ function Homepage({ crypto, fetchCrypto }) {
     const [xrp, setXrp] = useState(null)
     const [doge, setDoge] = useState(null)
     const [sol, setSol] = useState(null)
+    
+    console.log(sol, btc, doge)
+    console.log(crypto)
 
     useEffect(() => {
         crypto && crypto.forEach(coin => {
-            if(coin.base === 'BTC') setBtc(coin)
-            if(coin.base === 'ETH') setEth(coin)
-            if(coin.base === 'LTC') setLtc(coin)
-            if(coin.base === 'BNB') setBnb(coin)
-            if(coin.base === 'ADA') setAda(coin)
-            if(coin.base === 'XRP') setXrp(coin)
-            if(coin.base === 'SOL') setSol(coin)
-            if(coin.base === 'DOGE') setDoge(coin)
+            if(coin.USD.FROMSYMBOL === 'BTC') setBtc(coin)
+            if(coin.USD.FROMSYMBOL === 'ETH') setEth(coin)
+            if(coin.USD.FROMSYMBOL === 'LTC') setLtc(coin)
+            if(coin.USD.FROMSYMBOL === 'BNB') setBnb(coin)
+            if(coin.USD.FROMSYMBOL === 'ADA') setAda(coin)
+            if(coin.USD.FROMSYMBOL === 'XRP') setXrp(coin)
+            if(coin.USD.FROMSYMBOL === 'SOL') setSol(coin)
+            if(coin.USD.FROMSYMBOL === 'DOGE') setDoge(coin)
         })
     }, [crypto])
 
@@ -151,7 +154,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                                     <strong>{value}</strong>
                                                 </>
                                             )}
-                                            value={btc ? btc.price : 0}
+                                            value={btc ? btc.USD.PRICE : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
@@ -163,17 +166,16 @@ function Homepage({ crypto, fetchCrypto }) {
                                         <CurrencyFormat
                                             renderText={(value) => (
                                                 <>
-                                                    <span className={`${Math.sign(Number( btc?.change)) === -1 ||
-                                                     Math.sign(Number(btc?.change)) === 0  ? 'text-danger' : 'text-success'}`}>
+                                                    <span className={`${Math.sign(Number( btc?.USD.CHANGEPCTHOUR)) === -1 ||
+                                                     Math.sign(Number(btc?.USD.CHANGEPCTHOUR)) === 0  ? 'text-danger' : 'text-success'}`}>
                                                     { value }%</span>
                                                 </>
                                             )}
-                                            value={btc ? btc.change : 0}
+                                            value={btc ? btc?.USD.CHANGEPCTHOUR : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
                                             displayType={"text"}
-                                            prefix={"$"}
                                         />
                                     </span>
                                     <BtcChart />
@@ -200,7 +202,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                                     <strong>{value}</strong>
                                                 </>
                                             )}
-                                            value={eth ? eth.price : 0}
+                                            value={eth ? eth.USD.PRICE : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
@@ -212,17 +214,16 @@ function Homepage({ crypto, fetchCrypto }) {
                                         <CurrencyFormat
                                             renderText={(value) => (
                                                 <>
-                                                    <span className={`${Math.sign(Number(eth?.change)) === -1 ||
-                                                     Math.sign(Number(eth?.change)) === 0  ? 'text-danger' : 'text-success'}`}>
+                                                    <span className={`${Math.sign(Number(eth?.USD.CHANGEPCTHOUR)) === -1 ||
+                                                     Math.sign(Number(eth?.USD.CHANGEPCTHOUR)) === 0  ? 'text-danger' : 'text-success'}`}>
                                                     { value }%</span>
                                                 </>
                                             )}
-                                            value={eth ? eth.change : 0}
+                                            value={eth ? eth.USD.CHANGEPCTHOUR : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
                                             displayType={"text"}
-                                            prefix={"$"}
                                         />
                                     </span>
 
@@ -250,7 +251,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                                     <strong>{value}</strong>
                                                 </>
                                             )}
-                                            value={ltc ? ltc.price : 0}
+                                            value={ltc ? ltc.USD.PRICE : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
@@ -262,8 +263,8 @@ function Homepage({ crypto, fetchCrypto }) {
                                         <CurrencyFormat
                                             renderText={(value) => (
                                                 <>
-                                                    <span className={`${Math.sign(Number(ltc?.change)) === -1 ||
-                                                     Math.sign(Number(ltc?.change)) === 0  ? 'text-danger' : 'text-success'}`}>
+                                                    <span className={`${Math.sign(Number(ltc?.USD.CHANGEPCTHOUR)) === -1 ||
+                                                     Math.sign(Number(ltc?.USD.CHANGEPCTHOUR)) === 0  ? 'text-danger' : 'text-success'}`}>
                                                     { value }%</span>
                                                 </>
                                             )}
@@ -272,7 +273,6 @@ function Homepage({ crypto, fetchCrypto }) {
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
                                             displayType={"text"}
-                                            prefix={"$"}
                                         />
                                     </span>
                                     <LtcChart />
@@ -299,7 +299,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                                     <strong>{value}</strong>
                                                 </>
                                             )}
-                                            value={bnb ? bnb.price : 0}
+                                            value={bnb ? bnb.USD.PRICE : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
@@ -311,17 +311,16 @@ function Homepage({ crypto, fetchCrypto }) {
                                         <CurrencyFormat
                                             renderText={(value) => (
                                                 <>
-                                                    <span className={`${Math.sign(Number(bnb?.change)) === -1 ||
-                                                     Math.sign(Number(bnb?.change)) === 0  ? 'text-danger' : 'text-success'}`}>
+                                                    <span className={`${Math.sign(Number(bnb?.USD.CHANGEPCTHOUR)) === -1 ||
+                                                     Math.sign(Number(bnb?.USD.CHANGEPCTHOUR)) === 0  ? 'text-danger' : 'text-success'}`}>
                                                     { value }%</span>
                                                 </>
                                             )}
-                                            value={bnb ? bnb.change : 0}
+                                            value={bnb ? bnb.USD.CHANGEPCTHOUR : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
                                             displayType={"text"}
-                                            prefix={"$"}
                                         />
                                     </span>
                                     <BinanceChart />
@@ -348,7 +347,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                                     <strong>{value}</strong>
                                                 </>
                                             )}
-                                            value={xrp ? xrp.price : 0}
+                                            value={xrp ? xrp.USD.PRICE : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
@@ -360,17 +359,16 @@ function Homepage({ crypto, fetchCrypto }) {
                                         <CurrencyFormat
                                             renderText={(value) => (
                                                 <>
-                                                    <span className={`${Math.sign(Number(xrp?.change)) === -1 ||
-                                                     Math.sign(Number(xrp?.change)) === 0  ? 'text-danger' : 'text-success'}`}>
+                                                    <span className={`${Math.sign(Number(xrp?.USD.CHANGEPCTHOUR)) === -1 ||
+                                                     Math.sign(Number(xrp?.USD.CHANGEPCTHOUR)) === 0  ? 'text-danger' : 'text-success'}`}>
                                                     { value }%</span>
                                                 </>
                                             )}
-                                            value={xrp ? xrp.change : 0}
+                                            value={xrp ? xrp.USD.CHANGEPCTHOUR : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
                                             displayType={"text"}
-                                            prefix={"$"}
                                         />
                                     </span>
                                     <XrpChart />
@@ -398,7 +396,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                                     <strong>{value}</strong>
                                                 </>
                                             )}
-                                            value={ada ? ada.price : 0}
+                                            value={ada ? ada.USD.PRICE : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
@@ -410,17 +408,16 @@ function Homepage({ crypto, fetchCrypto }) {
                                         <CurrencyFormat
                                             renderText={(value) => (
                                                 <>
-                                                    <span className={`${Math.sign(Number(ada?.change)) === -1 ||
-                                                     Math.sign(Number(ada?.change)) === 0  ? 'text-danger' : 'text-success'}`}>
+                                                    <span className={`${Math.sign(Number(ada?.USD.CHANGEPCTHOUR)) === -1 ||
+                                                     Math.sign(Number(ada?.USD.CHANGEPCTHOUR)) === 0  ? 'text-danger' : 'text-success'}`}>
                                                     { value }%</span>
                                                 </>
                                             )}
-                                            value={ada ? ada.change : 0}
+                                            value={ada ? ada.USD.CHANGEPCTHOUR : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
                                             displayType={"text"}
-                                            prefix={"$"}
                                         />
                                     </span>
                                     <AdaChart />
@@ -447,29 +444,27 @@ function Homepage({ crypto, fetchCrypto }) {
                                                     <strong>{value}</strong>
                                                 </>
                                             )}
-                                            value={doge ? doge.price : 0}
+                                            value={doge ? doge.USD.PRICE : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
                                             displayType={"text"}
-                                            prefix={"$"}
                                         />
                                     </h3>
                                     <span>
                                         <CurrencyFormat
                                             renderText={(value) => (
                                                 <>
-                                                    <span className={`${Math.sign(Number(doge?.change)) === -1 ||
-                                                     Math.sign(Number(doge?.change)) === 0  ? 'text-danger' : 'text-success'}`}>
+                                                    <span className={`${Math.sign(Number(doge?.USD.CHANGEPCTHOUR)) === -1 ||
+                                                     Math.sign(Number(doge?.USD.CHANGEPCTHOUR)) === 0  ? 'text-danger' : 'text-success'}`}>
                                                     { value }%</span>
                                                 </>
                                             )}
-                                            value={doge ? doge.change : 0}
+                                            value={doge ? doge.USD.CHANGEPCTHOUR : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
                                             displayType={"text"}
-                                            prefix={"$"}
                                         />
                                     </span>
                                     <DogeChart />
@@ -496,7 +491,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                                     <strong>{value}</strong>
                                                 </>
                                             )}
-                                            value={sol ? sol.price : 0}
+                                            value={sol ? sol.USD.PRICE : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
@@ -508,17 +503,16 @@ function Homepage({ crypto, fetchCrypto }) {
                                         <CurrencyFormat
                                             renderText={(value) => (
                                                 <>
-                                                    <span className={`${Math.sign(Number(sol?.change)) === -1 ||
-                                                     Math.sign(Number(sol?.change)) === 0  ? 'text-danger' : 'text-success'}`}>
+                                                    <span className={`${Math.sign(Number(sol?.USD.CHANGEPCTHOUR)) === -1 ||
+                                                     Math.sign(Number(sol?.USD.CHANGEPCTHOUR)) === 0  ? 'text-danger' : 'text-success'}`}>
                                                     { value }%</span>
                                                 </>
                                             )}
-                                            value={sol ? sol.change : 0}
+                                            value={sol ? sol.USD.CHANGEPCTHOUR : 0}
                                             decimalScale={2}
                                             fixedDecimalScale={true}
                                             thousandSeparator={true}
                                             displayType={"text"}
-                                            prefix={"$"}
                                         />
                                     </span>
                                     <XtzChart />

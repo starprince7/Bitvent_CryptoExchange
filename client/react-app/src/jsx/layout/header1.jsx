@@ -7,19 +7,20 @@ import MarketCurrencyPrices from '../element/MarketCurrencyPrices'
 
 
 function Header1() {
-    const header_ref = useRef(null)
+    // const header_ref = useRef(null)
 
     useEffect(() => {
+        const header = document.querySelector('.header')
         window.document.addEventListener('scroll', (e) => {
             let scroll_top = e.target.documentElement.scrollTop || e.target.body.scrollTop;
 
             if (scroll_top > 1) {
-                header_ref.current.style.backgroundColor = 'white'
-                header_ref.current.style.boxShadow = '2px 0 15px 0px #a6a1b6bf'
+                header.style.backgroundColor = 'white'
+                header.style.boxShadow = '2px 0 15px 0px #a6a1b6bf'
             }
             else if (scroll_top < 40) {
-                header_ref.current.style.backgroundColor = '#ededed7d'
-                header_ref.current.style.boxShadow = 'none'
+                header.style.backgroundColor = '#ededed7d'
+                header.style.boxShadow = 'none'
             }
         })
     }, [])
@@ -27,7 +28,7 @@ function Header1() {
     return (
         <>
             {/* <MarketCurrencyPrices /> */}
-            <div className="header" ref={header_ref}>
+            <div className="header" >
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-12">
