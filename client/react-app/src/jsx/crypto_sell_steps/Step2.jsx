@@ -13,15 +13,19 @@ function Step2({ currentStep, totalSteps, previousStep, goToStep, nextStep, comp
   
   const handle_form_submit = (e) => {
     e.preventDefault()
-    btn_ref.current.textContent = 'Processing...'
+    btn_ref.current.textContent = 'Please wait...'
     createSellTransaction(email, (e, customer) => {
-      if (e) return
+      if (e) {
+        btn_ref.current.textContent = 'Continue'
+        btn_ref.current.disabled = false
+        return
+      }
       if (customer.isVerified === true) {
         goToStep(4)
       } else {
         nextStep()
       }
-  })
+    })
   }
 
   return (
@@ -46,7 +50,7 @@ function Step2({ currentStep, totalSteps, previousStep, goToStep, nextStep, comp
         </div>
           
         <button name="submit" ref={btn_ref} className="btn btn-primary btn-block">
-            submit
+            Continue
             <i className="la la-arrow-right"></i>
         </button>
 

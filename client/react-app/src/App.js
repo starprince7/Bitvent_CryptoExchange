@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 import Loader from './jsx/element/loader';
 import ErrorPopup from './jsx/element/error-popup';
+import Stripe from './jsx/HOC/Stripe';
 
 
 function App() {
@@ -19,12 +20,14 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <Index />
-        <Loader />
-        <ErrorPopup />
-        <Ripple customLoading={ loading } time={0} color={'#4d36a1'} />
-      </div>
+      <Stripe>
+        <div className="App">
+          <Index />
+          <Loader />
+          <ErrorPopup />
+          <Ripple customLoading={ loading } time={0} color={'#4d36a1'} />
+        </div>
+      </Stripe>
     </Provider>
   );
 }

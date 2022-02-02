@@ -1,5 +1,7 @@
 const Customer_Transactions = require('../model/customerSchema')
 const { sendEmailVerificationCode } = require('../utils/mailer')
+const Strip = require('stripe')
+const stripe = new Strip(process.env.STRIPE_SECRET_KEY)
 
 
 module.exports.create_buy_transaction = async (req, res) => {
@@ -15,7 +17,7 @@ module.exports.create_buy_transaction = async (req, res) => {
         const transaction = await Customer_Transactions.create({
             email,
             wallet_address,
-            buy_transactions: [ currency, amount, buyer_gets ],
+            buy_transactions: [ { currency, amount, buyer_gets } ],
             verification_code: generated_code
         })
         // send verification code to e-mail
@@ -150,4 +152,32 @@ module.exports.verify_email = async (req, res) => {
         }
     }
 
+}
+
+module.exports.create_payment_intent = async (req, res) => {
+    console.log("Req Came for /api/charge")
+    console.log(req.body)
+    const { amount, id, name, phone, country, email } = req.body
+    
+    try { 
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: amount,
+            currency: 'USD'
+        })
+        console.log('Transaction Success Msg: >>> ', paymentIntent)
+        if (paymentIntent) {
+            const customer = await Customer_Transactions.findOne({ email })
+            if (!customer.name) {
+                customer.name = name
+                customer.phone = phone
+                customer.country = country
+                await customer.save()
+            }
+        }
+        res && res.json(paymentIntent.client_secret)
+    }
+    catch (err) {
+        console.log('Error making Payment! >>>', err.code)
+        res.send(err.raw)
+    }
 }

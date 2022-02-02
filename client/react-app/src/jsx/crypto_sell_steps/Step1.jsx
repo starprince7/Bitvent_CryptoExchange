@@ -136,7 +136,7 @@ function Step1(props) {
             <div className="form-group">
                 <div className="d-flex justify-content-between">
                     <label className="mr-sm-2">Currency</label>
-                    <label className="mr-sm-2">How many {crypto && selected_value}</label>
+                    <label className="mr-sm-2">Amount of {crypto && selected_value}</label>
                 </div>
                 {/* Select-Tag Group Start */}
                 <div className="input-group mb-3">

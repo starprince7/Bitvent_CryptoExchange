@@ -80,10 +80,11 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  /* font-family: 'Red Hat Display', sans-serif; */
+  font-family: 'Red Hat Display', sans-serif;
   /* font-family: 'Inter', sans-serif; */
   /* font-family: 'Montserrat', sans-serif; */
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Nunito', sans-serif; */
   /* font-family: 'Raleway', sans-serif; */
   font-size: 1rem;
   font-weight: 400;
@@ -7802,7 +7803,24 @@ a {
   overflow: hidden;
   position: relative;
   z-index: 1;
-  margin-top: 100px; }
+  padding-top: 100px;
+  background-color: #ededed7d;
+  /* background-image: radial-gradient(); */
+  /* background-image: linear-gradient(to left, hsla(0, 0%, 98%, 1) 0%, hsla(257, 100%, 89%, 0.2) 90%, hsla(288, 84%, 88%, 0.6) 100%); */
+  /* background-size: 400% 400%; */
+  animation: movebackground 10s ease alternate  infinite;
+}
+@keyframes movebackground {
+  0% {
+    background-image: linear-gradient(200deg, hsla(0, 0%, 98%, 1) 0%, hsla(257, 100%, 89%, 0.2) 90%, hsla(288, 84%, 88%, 0.6) 100%);
+  }
+  100% {
+    background-image: linear-gradient( top right, hsla(0, 0%, 98%, 1) 0%, hsla(288, 84%, 88%, 0.6) 100%), hsla(257, 100%, 89%, 0.2) 90%;
+  }
+} 
+
+
+
   #main-wrapper.show {
     opacity: 1; }
 
@@ -8007,7 +8025,9 @@ a {
     max-width: 100%; } }
 
 .header {
-  padding: 21px 0px;
+  /* border: solid red; */
+  border-radius: 0 0 5px 5px;
+  padding: 10px 0px;
   background: #ededed7d;
   transition: all 0.2s ease-in-out;
   z-index: 999;
@@ -8017,7 +8037,7 @@ a {
   top: 0; }
   @media only screen and (max-width: 576px) {
     .header {
-      padding: 25px 0;
+      padding: 10px 0;
     }
   }
   .header.fixed {
@@ -8042,10 +8062,10 @@ a {
             margin: 0 15px;
             padding: 7px 15px; } }
         .header .navigation .navbar .navbar-nav > .nav-item > a {
-          font-size: 16px;
+          font-size: 15px;
           font-weight: 500 !important;
           color: #16161de3;
-          margin-right: 2.5rem; }
+          margin-right: 1.8rem; }
           @media only screen and (max-width: 991px) {
             .header .navigation .navbar .navbar-nav > .nav-item > a::after {
               position: absolute;
@@ -8678,7 +8698,7 @@ button,
 .btn {
   padding: 10px 30px;
   display: inline-block;
-  border-radius: 30px;
+  border-radius: 10px;
   min-width: 130px;
   font-size: 16px;
   font-weight: 600; }
@@ -8879,12 +8899,10 @@ button,
 .intro {
   padding: 0px 2.8rem;
   border-bottom: 1px solid #f1f4f8;
-  background-color: #ededed7d;
-  /* background-image: url('https://cdn3d.iconscout.com/3d/premium/thumb/bitcoin-3254547-2725172.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 95% 20%;  */
-} @media only screen and (max-width: 500px) {
+  background: transparent;
+}
+
+@media only screen and (max-width: 500px) {
   .intro {
     padding: 20px 0;
     height: 90vh;
@@ -8900,13 +8918,17 @@ button,
   }
   .intro .intro-content h1 {
     line-height: 45px !important; 
-    font-size: 2.2rem !important;
+    font-size: 2.3rem !important;
+    font-weight: 900;
     text-align: center;
-    margin-bottom: 10px !important;
+    margin-bottom: 5px !important;
+  }
+  body {
+    font-weight: 500;
   }
   .intro .intro-content p {
     font-size: 1rem;
-    margin: 4px 0 !important; }
+    margin: 1rem 0 !important; }
   .intro-btn {
     display: flex;
     flex-direction: column;
@@ -8927,14 +8949,22 @@ button,
   }
 }
 
+@media only screen and (min-width: 992px) {
+  .arrow_icon_container {
+    display: none;
+  }
+  
+}
+
 .intro .intro-content h1 {
   /* line-height: 75px; */
   margin-bottom: 10px; 
-  font-size: 3.1rem;
-  color: #000008e8;
+  font-size: 3.5rem;
+  color: #000008cf;
+  /* text-shadow: 8px 8px 8px #b39ff92b; */
 }
   .intro .intro-content p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 10px; }
 
 .intro-form {
@@ -9024,11 +9054,11 @@ button,
       right: 15px; }
 
 .brand_container {
-  height: 200px;
+  height: 100px;
   width: 100%;
   background-image: url('https://www.bitcoin.com/images/uploads/homepage-media@2x.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 550px;
 } @media only screen and (max-width: 500px) {
   .brand_container {
     /* background-size: 450px 150px; */
@@ -9094,8 +9124,8 @@ button,
   .get-touch-content span {
     margin-right: 15px; }
     .get-touch-content span i {
-      color: #1652F0;
-      font-size: 42px; }
+      color: #6e5bb2;
+      font-size: 30px; }
   .get-touch-content h4 {
     font-size: 20px;
     margin-bottom: 10px;
@@ -10165,7 +10195,7 @@ button,
     color: #1652F0; }
   .info-list ul li i {
     margin-right: 15px;
-    color: #1652F0;
+    /* color: #1652F0; */
     font-weight: bold;
     font-size: 24px; }
 

@@ -41,4 +41,10 @@ API /EMAIL-VERIFICATION
 ============================================================================================== */
 apiRouter.post('/email-verification', API_Controller.verify_email)
 
+/*============================================================================================
+// ----- CREATE A STRIPE PAYMENT INTENT 
+// ----- COLLECT PAYMMENT FROM CUSTOMERS
+============================================================================================== */
+apiRouter.post('/charge', API_Controller.create_payment_intent)
+
 module.exports = apiRouter

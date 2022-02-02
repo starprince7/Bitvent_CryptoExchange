@@ -35,15 +35,18 @@ function About() {
                         </div>
                         <div className="col-lg-6"><br />
                             <div className="service-content m-t-50">
-                                <h3>In Brief</h3>
-                                <p>Founded in January of 2013, This is a forex and crypto-currency trading platform where
-                                    merchants
-                                    and consumers can transact with all currency including many digital currencies like bitcoin, ethereum, and
-                                    litecoin.
-                                    We're based in the United Kingdom.</p>
+                                <h3>We feel that purchasing cryptocurrency should not be so difficult.</h3>
+                                <p>
+                                    Coinvent was formed in 2021 with a single objective in mind: to promote cryptocurrency acceptance.
+                                    The goal of the company was to develop a simple and safe software solution that would allow individuals
+                                    all around the world to engage in the biggest digital revolution since the internet.
+                                </p>
                                 
-                                <p>Here at WealthWiseFx. we are charged with the responsibility of using advance and ethical medium to
-                                    bring you the best and most suitable result in your investment.</p>
+                                <p>
+                                    Money is important to us all, whether it's in the form of a wage, a pension, or savings in a piggybank.
+                                    The freedom to acquire and employ personal resources is an essential component of human dignity and a
+                                    fundamental human right.
+                                </p>
 
                             </div>
                         </div>

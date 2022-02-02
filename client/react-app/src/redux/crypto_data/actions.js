@@ -75,12 +75,18 @@ export const setWalletAddress = (address) => {
     }
 }
 
-export const sendVerificationCode = (code, cb) => {
+// Submit Verification code.
+export const submitVerificationCode = (code, cb) => {
+    console.log('Actions File COde came', code)
     return async (dispatch, getState) => {
+        console.log('State Object From ActionCreator <<>>>', getState())
+        
         const { customer } = getState().app_state
         const email = customer.email
 
         let options = { email, verification_code: code }
+
+        console.log(options)
         
         try {
             const res = await axios.post('/api/email-verification', options)
@@ -99,21 +105,81 @@ export const sendVerificationCode = (code, cb) => {
     }
 }
 
+export const submitVerificationCode2 = (code, cb) => {
+    console.log('Actions File COde came', code)
+    return function(dispatch, getState) {
+        console.log('Actions File COde came', code)
+        console.log('State Object From ActionCreator <<>>>', getState())
+        
+        const { customer } = getState().app_state
+        const email = customer.email
+
+        let options = { email, verification_code: code }
+
+        console.log(options)
+        
+        
+        axios.post('/api/email-verification', options)
+        .then(res => {
+            if (res.data.error) {
+                dispatch(setError(res.data.error))
+                cb(res.data.error, null)
+            }
+            dispatch(setCustomer(res.data.customer))
+            cb(null, res.data.customer)
+        })
+        .catch(e => {
+            cb(e, null)
+            console.log("ERROR SUBMITTING VERIFICATION CODE", e)
+        })
+    }
+}
+
 export const createSellTransaction = (email, cb) => {
     return async (dispatch, getState) => {
-        console.log('Yes! Email came to Action from form', email)
-        console.log('State Object From ActionCreator <<>>>', getState())
-        const { currency, amount, seller_gets } = getState().app_state
+        const { currency, amount, seller_gets, current_price } = getState().app_state
 
         let options = {
             email,
             amount,
             currency,
-            seller_gets
+            seller_gets,
+            current_price
         }
 
         try {
             const res = await axios.post('/api/create_sell_transaction', options)
+            res && console.log('Create_transaction Response!', res)
+            if (res.data.error) {
+                dispatch(setError(res.data.error))
+                cb(res.data.error, null)
+            }
+            if (res.data.customer) {
+                dispatch(setCustomer(res.data.customer))
+                cb(null, res.data.customer)
+            }
+        } catch (e) {
+            cb(e, null)
+            console.log('ERROR COULD NOT CREATE SELL TRANSACTION', e)
+        }
+    }
+}
+
+export const createBuyTransaction = (email, cb) => {
+    return async (dispatch, getState) => {
+        const { currency, amount, buyer_gets, current_price, wallet_address } = getState().app_state
+
+        let options = {
+            email,
+            amount,
+            currency,
+            buyer_gets,
+            current_price,
+            wallet_address
+        }
+
+        try {
+            const res = await axios.post('/api/create_buy_transaction', options)
             res && console.log('Create_transaction Response!', res)
             if (res.data.error) {
                 dispatch(setError(res.data.error))

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import WWFX_LOGO from '../../images/wealth_wise.png'
-import MarketCurrencyPrices from '../element/MarketCurrencyPrices'
 
 
 
@@ -19,7 +18,7 @@ function Header1() {
                 header.style.boxShadow = '2px 0 15px 0px #a6a1b6bf'
             }
             else if (scroll_top < 40) {
-                header.style.backgroundColor = '#ededed7d'
+                header.style.backgroundColor = 'transparent'
                 header.style.boxShadow = 'none'
             }
         })
@@ -45,7 +44,8 @@ function Header1() {
                                                 <NavDropdown.Item><Link to={'/'}>Home 1</Link></NavDropdown.Item>
                                                 <NavDropdown.Item><Link to={'/index2'}>Home 2</Link></NavDropdown.Item>
                                             </NavDropdown> */}
-                                            <Nav.Item><Link className="text-gray-dark" to={'/about'}>About</Link></Nav.Item>
+                                            {/* <Nav.Item><Link className="text-gray-dark" to={'/about'}>About</Link></Nav.Item> */}
+                                            <Nav.Item><a href='/about' className="text-gray-dark" to={'/about'}>About</a></Nav.Item>
                                             <Nav.Item><Link className="text-gray-dark" to={'/team'}>Team</Link></Nav.Item>
                                             
                                             
@@ -64,9 +64,9 @@ function Header1() {
                                         </Nav>
 
 
-                                    <div className="signin-btn ml-3 hidden-sm hidden-xs">
-                                        <Link className="btn btn-primary" to={'/login'}>Log in</Link>
-                                    </div>
+                                        <div className="signin-btn ml-3 hidden-sm hidden-xs">
+                                            <Link className="btn btn-primary" to={'#Exchange'}>Buy</Link>
+                                        </div>
                                     </Navbar.Collapse>
 
                                 </Navbar>                                

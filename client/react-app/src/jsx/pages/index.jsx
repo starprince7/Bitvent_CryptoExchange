@@ -44,9 +44,8 @@ function Homepage({ crypto, fetchCrypto }) {
     const [xrp, setXrp] = useState(null)
     const [doge, setDoge] = useState(null)
     const [sol, setSol] = useState(null)
-    
-    console.log(sol, btc, doge)
-    console.log(crypto)
+    // When DOM is full loaded Type-writer should show
+    const [pageloaded, setPageLoaded] = useState(false)
 
     useEffect(() => {
         crypto && crypto.forEach(coin => {
@@ -73,6 +72,10 @@ function Homepage({ crypto, fetchCrypto }) {
     useEffect(() => {
         // Call crypto data here, handled by the redux actions.
         fetchCrypto()
+
+        window.addEventListener('load', () => {
+            setPageLoaded(true)
+        })
     }, [])
 
     return (
@@ -84,21 +87,29 @@ function Homepage({ crypto, fetchCrypto }) {
                         <div className="col-xl-6 col-lg-6 col-12">
                             <div className="intro-content">
                                 <h1>
-                                    <TypeWriterEffect
-                                        startDelay={1000}
-                                        cursorColor="black"
-                                        typeSpeed={150}
-                                        multiText={["Buy crypto at true cost", "Crypto made easy"]}
-                                        multiTextDelay={3500}
-                                        hideCursorAfterText={true}
-                                    />
+                                    {
+                                        pageloaded && (
+                                            <TypeWriterEffect
+                                                startDelay={1000}
+                                                cursorColor="black"
+                                                typeSpeed={100}
+                                                multiText={["Buy crypto at true cost", "Buy quickly and easily", "Crypto made easy"]}
+                                                multiTextDelay={3000}
+                                                hideCursorAfterText={true}
+                                            />
+                                        )
+                                    }
                                 </h1>
-                                <p>Fast and secure way to purchase or exchange 150+ cryptocurrencies</p>
+                                <p>Fast and secure way to purchase or exchange cryptocurrencies</p>
                             </div>
 
                             <div className="intro-btn">
-                                <Link to={'#'} className="btn btn-primary">Get Started</Link>
+                                <Link to={'#'} className="btn btn-primary">Buy crypto</Link>
                                 <Link to={'#'} className="btn btn-outline-primary">Browse Now</Link>
+                                <div className="arrow_icon_container text-center mt-4 lg-d-none">
+                                    <p>Scroll</p>
+                                    <i class="fas fa-arrow-down bold text-secondary"></i>
+                                </div>
                             </div>
                         </div>
                         {/* Exchange Form Was Here! */}
@@ -115,7 +126,7 @@ function Homepage({ crypto, fetchCrypto }) {
                 <div className="container">
                     <div className=" mb-5 col-12 d-flex align-items-center justify-content-center">
                     {/* Exchange Form ============================ */}
-                        <div data-aos="fade-up" className="intro-form-exchange">
+                        <div id='Exchange' data-aos="fade-up" className="intro-form-exchange">
                             <Tabs
                                 defaultActiveKey="buy"
                                 variant='pills'
@@ -541,9 +552,9 @@ function Homepage({ crypto, fetchCrypto }) {
                                 <div data-aos='zoom-up' className="card-body">
                                     <span><i className="la la-mobile"></i></span>
                                     <h4 className="card-title">Mobile</h4>
-                                    <p>All the power of Tradix's cryptocurrency exchange, in the palm of your hand. Download
+                                    <p>All the power of Coinvent's cryptocurrency exchange, in the palm of your hand. Download
                                         the
-                                    Tradix mobile crypto trading app today</p>
+                                    Coinvent mobile crypto trading app today</p>
 
                                     <Link to={'#'}> Know More <i className="la la-arrow-right"></i> </Link>
                                 </div>
@@ -554,7 +565,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                 <div data-aos='zoom-up' className="card-body">
                                     <span><i className="la la-desktop"></i></span>
                                     <h4 className="card-title">Desktop</h4>
-                                    <p>Powerful crypto trading platform for those who mean business. The Tradix crypto
+                                    <p>Powerful crypto trading platform for those who mean business. The Coinvent crypto
                                         trading
                                     experience, tailor-made for your Windows or MacOS device.</p>
 
@@ -567,7 +578,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                 <div className="card-body">
                                     <span><i className="la la-connectdevelop"></i></span>
                                     <h4 className="card-title">API</h4>
-                                    <p>The Tradix API is designed to provide an easy and efficient way to integrate your
+                                    <p>The Coinvent API is designed to provide an easy and efficient way to integrate your
                                         trading
                                     application into our platform.</p>
 

@@ -7,7 +7,8 @@ import {
     SET_CURRENCY,
     SET_SELLER_GETS,
     SET_BUYER_GETS,
-    SET_CURRENT_PRICE
+    SET_CURRENT_PRICE,
+    SET_WALLET_ADDRESS
 } from './actionTypes'
 
 // initialize state
@@ -16,6 +17,7 @@ const initialState = {
     amount: null,
     currency: null,
     current_price: null,
+    wallet_address: null,
     seller_gets: null,
     buyer_gets: null,
     customer: null,
@@ -51,6 +53,10 @@ const cryptoReducer = (state = initialState, action) => {
         case SET_BUYER_GETS: return {
             ...state,
              buyer_gets: action.payload
+        }
+        case SET_WALLET_ADDRESS: return {
+            ...state,
+             wallet_address: action.payload
         }
         case SET_CUSTOMER: return {
             ...state,

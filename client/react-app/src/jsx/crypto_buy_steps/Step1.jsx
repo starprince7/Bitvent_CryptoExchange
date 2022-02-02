@@ -1,9 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
 import CurrencyFormat from 'react-currency-format';
 import { connect } from 'react-redux'
-import { fetchCrypto } from '../../redux/crypto_data/actions'
+import { fetchCrypto, setBuyerGets, setAmount, setCurrentPrice, setWalletAddress, setCurrency } from '../../redux/crypto_data/actions'
 
-function Step1({ previousStep, goToStep, nextStep, complete, crypto, fetchCrypto }) {
+function Step1(props) {
+
+    const {
+        goToStep,
+        nextStep,
+        complete,
+        previousStep,
+        crypto,
+        fetchCrypto,
+        _setAmount,
+        setCurrency,
+        setBuyerGets,
+        setCurrentPrice,
+        setWalletAddress,
+    } = props
 
     const selectTagRef = useRef(null)
     // Component State
@@ -14,6 +28,7 @@ function Step1({ previousStep, goToStep, nextStep, complete, crypto, fetchCrypto
     const [coin_price, setCoinPrice] = useState(null)
     const [option_tag, setOptionTag] = useState('<option selected>Please wait...</option>')
     const [purchased_amount, setPurchasedAmount] = useState(null)
+    const [wallet_address, _setWalletAddress] = useState('')
 
 
     useEffect(() => {
@@ -104,8 +119,21 @@ function Step1({ previousStep, goToStep, nextStep, complete, crypto, fetchCrypto
         setOptionTag(optionList)
     }, [crypto])
 
+        /*  setBuyerGets, setAmount, setCurrentPrice, setWalletAddress, setCurrency  */
+
+    const handle_form_submit = e => {
+        e.preventDefault()
+        _setAmount(amount)
+        setCurrency(coin_name)
+        setWalletAddress(wallet_address)
+        // Set amount of crypto to send to a "BUYER"
+        setBuyerGets(purchased_amount)
+        setCurrentPrice(coin_price)
+        nextStep()
+    }
+
     return (
-        <form name="myform" className="currency_validate">
+        <form onSubmit={handle_form_submit} className="currency_validate">
             <br />
             <div className="form-group">
                 <div className="d-flex justify-content-between">
@@ -129,7 +157,11 @@ function Step1({ previousStep, goToStep, nextStep, complete, crypto, fetchCrypto
             <div className="form-group">
                 <label className="mr-sm-2">Wallet Address</label>
                 <div className="input-group mb-3">
-                    <input type="text" name="usd_amount" className="form-control" placeholder="Paste address here" required />
+                    <input type="text" value={wallet_address}
+                        onChange={e => _setWalletAddress(e.target.value)}
+                        className="form-control" placeholder="Paste address here"
+                        required   
+                    />
                 </div>
                 <div className="d-flex justify-content-between mt-5 align-items-center">
                     <h6 className="mb-0">Summary</h6>
@@ -154,7 +186,7 @@ function Step1({ previousStep, goToStep, nextStep, complete, crypto, fetchCrypto
                         /> {crypto && selected_value}</h6>
                 </div>
             </div>
-            <button  name="submit" className="btn btn-primary btn-block" onClick={ nextStep }>
+            <button  name="submit" className="btn btn-primary btn-block">
                 Buy
                 <i className="la la-arrow-right"></i>
             </button>
@@ -171,7 +203,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchCrypto: () => dispatch(fetchCrypto())
+        fetchCrypto: () => dispatch(fetchCrypto()),
+        _setAmount: (amount) => dispatch(setAmount(amount)),
+        setBuyerGets: (crypto) => dispatch(setBuyerGets(crypto)),
+        setCurrency: (currency) => dispatch(setCurrency(currency)),
+        setCurrentPrice: (price) => dispatch(setCurrentPrice(price)),
+        setWalletAddress: (address) => dispatch(setWalletAddress(address)),
     }
 }
 
