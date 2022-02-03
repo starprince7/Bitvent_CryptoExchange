@@ -33,9 +33,9 @@ function Header1() {
                         <div className="col-xl-12">
                             <div className="navigation">
                                 <Navbar bg="light" expand="lg">
-                                    <Link className="navbar-brand text-primary" to={'/'}>
+                                    <a className="navbar-brand text-primary" href='/'>
                                         <img src={WWFX_LOGO} alt="Logo" />
-                                    </Link>
+                                    </a>
                                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                     <Navbar.Collapse>
                                         <Nav className="ml-auto">

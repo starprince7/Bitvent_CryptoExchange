@@ -70,6 +70,7 @@
   box-sizing: border-box; }
 
 html {
+  scroll-behavior: smooth;
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -166,9 +167,8 @@ sup {
   top: -.5em; }
 
 a {
-  color: #6f5cb3;
-  text-decoration: none;
-  background-color: transparent; }
+  color: #573ad2;
+  text-decoration: none; }
   a:hover {
     color: #0b38ae;
     text-decoration: underline; }
@@ -330,8 +330,8 @@ template {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  margin-bottom: 1.3rem;
+  font-weight: 800;
   line-height: 1.2;
   color: #161c2d; }
 
@@ -344,6 +344,11 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: 2.5rem; }
+
+.terms_condition-text h3 {
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+}
 
 h4, .h4 {
   font-size: 1.125rem; }
@@ -1942,8 +1947,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #4d36a1cf;
-  border-color: #6d5ab1; }
+  background-color: #573ad2;
+  border-color: #573ad2; }
   .btn-primary:hover {
     color: #fff;
     background-color: #4d36a1;
@@ -2153,7 +2158,7 @@ fieldset:disabled a.btn {
   border-color: #7250ec; }
   .btn-outline-primary:hover {
     color: #fff;
-    background-color: #7250ec;
+    background-color: #573ad2;
     border-color: #7250ec; }
   .btn-outline-primary:focus, .btn-outline-primary.focus {
     box-shadow: 0 0 0 0.2rem rgba(22, 82, 240, 0.5); }
@@ -3193,12 +3198,13 @@ input[type="button"].btn-block {
     border-top-right-radius: 0; }
 
 .nav-pills .nav-link {
-  border-radius: 0.25rem; }
+  border-radius: 0.25rem;
+  background-color: #573ad212; }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #6f5cb3; }
+  background-color: #573ad2; }
 
 .nav-fill > .nav-link,
 .nav-fill .nav-item {
@@ -7804,18 +7810,18 @@ a {
   position: relative;
   z-index: 1;
   padding-top: 100px;
-  background-color: #ededed7d;
+  background-color: #573ad212;
   /* background-image: radial-gradient(); */
-  /* background-image: linear-gradient(to left, hsla(0, 0%, 98%, 1) 0%, hsla(257, 100%, 89%, 0.2) 90%, hsla(288, 84%, 88%, 0.6) 100%); */
-  /* background-size: 400% 400%; */
+  background-image: linear-gradient(95deg, hsla(154, 100%, 76%, 0.1) 37%, hsla(257, 100%, 82%, 0.2) 57%, hsla(234, 100%, 83%, 0.3) 72%);
+  background-size: 400% 400%;
   animation: movebackground 10s ease alternate  infinite;
 }
 @keyframes movebackground {
   0% {
-    background-image: linear-gradient(200deg, hsla(0, 0%, 98%, 1) 0%, hsla(257, 100%, 89%, 0.2) 90%, hsla(288, 84%, 88%, 0.6) 100%);
+    background-position: 0;
   }
   100% {
-    background-image: linear-gradient( top right, hsla(0, 0%, 98%, 1) 0%, hsla(288, 84%, 88%, 0.6) 100%), hsla(257, 100%, 89%, 0.2) 90%;
+    background-position: 100% 100%;
   }
 } 
 
@@ -9027,7 +9033,7 @@ button,
   
 .intro-form-exchange {
   padding: 30px;
-  box-shadow: 0px 0.3rem 4rem #b39ff924;
+  box-shadow: 0px 0.3rem 4rem #573ad217;
   border-radius: 20px;
   background: #ffffff;
   height: 570px;
@@ -9054,14 +9060,14 @@ button,
       right: 15px; }
 
 .brand_container {
-  height: 100px;
+  height: 152px;
   width: 100%;
   background-image: url('https://www.bitcoin.com/images/uploads/homepage-media@2x.png');
   background-repeat: no-repeat;
-  background-size: 550px;
+  background-size: 100%;
 } @media only screen and (max-width: 500px) {
   .brand_container {
-    /* background-size: 450px 150px; */
+    background-size: 200%;
   }
 }
       
@@ -10139,7 +10145,7 @@ button,
 
 .intro-video-play {
   background-color: #fff;
-  background-image: url("./../images/background/2.jpg");
+  background-image: url("../images/background/blockchain-vid-bg.jpg");
   background-size: cover;
   background-position: 0 0;
   min-height: 465px;
@@ -10393,9 +10399,13 @@ button,
 .join-team {
   border-bottom: 1px solid #f1f4f8; }
 
+.interested-join  h2 {
+  font-size: 2rem !important;
+  margin-top: 1rem;
+}
 .interested-join {
   border-top: 1px solid #f1f4f8;
-  background: #0d40c6; }
+  background: #573ad2; }
   .interested-join h2 {
     color: #fff;
     margin-bottom: 15px; }

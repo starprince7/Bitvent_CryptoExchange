@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/style.css';
 import Index from './jsx';
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 import { Ripple } from 'react-preloaders';
 import { Provider } from 'react-redux'
@@ -16,6 +18,15 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('load', () => setLoading(false))
+  }, [])
+
+  useEffect(() => {
+    Aos.init({
+        offset: 200,
+        duration: 600,
+        easing: 'ease-in-sine',
+        delay: 100
+    })
   }, [])
 
   return (

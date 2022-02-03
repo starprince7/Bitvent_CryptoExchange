@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import TypeWriterEffect from 'react-typewriter-effect';
 import CurrencyFormat from 'react-currency-format'
 import { connect } from 'react-redux'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 // Redux actions
 import { fetchCrypto } from '../../redux/crypto_data/actions'
 // component
@@ -61,15 +59,6 @@ function Homepage({ crypto, fetchCrypto }) {
     }, [crypto])
 
     useEffect(() => {
-        Aos.init({
-            offset: 200,
-            duration: 600,
-            easing: 'ease-in-sine',
-            delay: 100
-        })
-    }, [])
-
-    useEffect(() => {
         // Call crypto data here, handled by the redux actions.
         fetchCrypto()
 
@@ -86,6 +75,7 @@ function Homepage({ crypto, fetchCrypto }) {
                     <div className="row justify-content-between align-items-center">
                         <div className="col-xl-6 col-lg-6 col-12">
                             <div className="intro-content">
+                                {/* <div className="text-primary"><strong>Bull, sell, exchange</strong></div> */}
                                 <h1>
                                     {
                                         pageloaded && (
@@ -104,8 +94,8 @@ function Homepage({ crypto, fetchCrypto }) {
                             </div>
 
                             <div className="intro-btn">
-                                <Link to={'#'} className="btn btn-primary">Buy crypto</Link>
-                                <Link to={'#'} className="btn btn-outline-primary">Browse Now</Link>
+                                <a href='#Exchange' className="btn btn-primary">Buy crypto</a>
+                                <a href='#Exchange' className="btn btn-outline-primary">Sell crypto</a>
                                 <div className="arrow_icon_container text-center mt-4 lg-d-none">
                                     <p>Scroll</p>
                                     <i class="fas fa-arrow-down bold text-secondary"></i>
@@ -122,11 +112,11 @@ function Homepage({ crypto, fetchCrypto }) {
                 </div>
             </div>
 
-            <div className="price-grid section-padding container_exchange">
+            <div id="Exchange" className="price-grid section-padding container_exchange">
                 <div className="container">
                     <div className=" mb-5 col-12 d-flex align-items-center justify-content-center">
                     {/* Exchange Form ============================ */}
-                        <div id='Exchange' data-aos="fade-up" className="intro-form-exchange">
+                        <div data-aos="fade-up" className="intro-form-exchange">
                             <Tabs
                                 defaultActiveKey="buy"
                                 variant='pills'
@@ -552,9 +542,9 @@ function Homepage({ crypto, fetchCrypto }) {
                                 <div data-aos='zoom-up' className="card-body">
                                     <span><i className="la la-mobile"></i></span>
                                     <h4 className="card-title">Mobile</h4>
-                                    <p>All the power of Coinvent's cryptocurrency exchange, in the palm of your hand. Download
+                                    <p>All the power of Bitvent's cryptocurrency exchange, in the palm of your hand. Download
                                         the
-                                    Coinvent mobile crypto trading app today</p>
+                                    Bitvent mobile crypto trading app today</p>
 
                                     <Link to={'#'}> Know More <i className="la la-arrow-right"></i> </Link>
                                 </div>
@@ -565,9 +555,9 @@ function Homepage({ crypto, fetchCrypto }) {
                                 <div data-aos='zoom-up' className="card-body">
                                     <span><i className="la la-desktop"></i></span>
                                     <h4 className="card-title">Desktop</h4>
-                                    <p>Powerful crypto trading platform for those who mean business. The Coinvent crypto
+                                    <p>Powerful crypto trading platform for those who mean business. The Bitvent crypto
                                         trading
-                                    experience, tailor-made for your Windows or MacOS device.</p>
+                                    experience, tailor-made for your Windows or MacOS device comming soon.</p>
 
                                     <Link to={'#'}> Know More <i className="la la-arrow-right"></i> </Link>
                                 </div>
@@ -578,7 +568,7 @@ function Homepage({ crypto, fetchCrypto }) {
                                 <div className="card-body">
                                     <span><i className="la la-connectdevelop"></i></span>
                                     <h4 className="card-title">API</h4>
-                                    <p>The Coinvent API is designed to provide an easy and efficient way to integrate your
+                                    <p>The Bitvent API is designed to provide an easy and efficient way to integrate your
                                         trading
                                     application into our platform.</p>
 

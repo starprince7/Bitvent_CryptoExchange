@@ -145,8 +145,8 @@ function Team() {
                         <div className="col-xl-12">
                             <div className="interested-join-content text-center">
                                 <h2>New in the market? So is everyone.</h2>
-                                <p>Let's grow together get started today.</p>
-                                <Link to={'#'} className="btn btn-primary">Sign Up</Link>
+                                <p>We've simplified the process of buying and selling, get started today.</p>
+                                <a href="/#Exchange"><button className="border p-2 my-3">Buy crypto</button></a>
                             </div>
                         </div>
                     </div>

@@ -35,12 +35,20 @@ async function connectToDatabase() {
 connectToDatabase()
 
 
-// Set static Files
-app.use(express.static('client'))
+// Serve Static files to client only in a production Environment
+if (process.env.NODE_ENV === "production") {
+    // Make the Client files Public
+    app.use(express.static("client/react-app/build"));
+  
+    app.get("*", (req, res) => {
+      console.log("req just came in to load up React client/react-app/build - Files ");
+      res.sendFile("./client/react-app/build/index.html", { root: __dirname });
+    });
+}
+
 
 // Middle ware To parse request body
 app.use(express.json())
-
 // API Routes
 app.use('/api', apiRouter)
 

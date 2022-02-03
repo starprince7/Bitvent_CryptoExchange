@@ -88,9 +88,9 @@ function Contact() {
                             <div className="info-list">
                                 <h5 className="mb-3">Address</h5>
                                 <ul>
-                                    <li><i className="fa fa-map-marker"></i> Pune, India</li>
                                     <li><i className="fa fa-phone"></i> (+880) 1843 666660</li>
-                                    <li><i className="fa fa-envelope"></i> quixlab.com@gmail.com</li>
+                                    <li><i className="fa fa-envelope"></i> bitvent.com@gmail.com</li>
+                                    <li><i className="fa fa-map-marker"></i> 3062 Woodside Road, Woodside, CA 94062</li>
                                 </ul>
                             </div>
                         </div>
