@@ -129,19 +129,20 @@ function Step4(props) {
             
         </div>
         
-        <div className="card-container p-3 mt-2 mb-2 border rounded">
+            <label htmlFor="">Card details</label>
+          <div className="card-container p-3 mt-1 mb-2 border rounded">
               <CardElement />
         </div>
-        <div className="image-container text-center mb-4">
-            <img src={StripePaymentIcon} alt="Stripe icon" width={220} />
+        <div className="image-container text-center mb-5">
+            <img src={StripePaymentIcon} alt="Stripe icon" width={190} />
         </div>
           
         <button type="submit" ref={btn_ref} className="btn btn-primary btn-block">
-            Pay
-            <span className='mx-2'>
+            <strong>
+                Pay<span className='mx-2'>
                 <CurrencyFormat
                     renderText={(value) => (
-                        <span>{ value }</span>
+                        <>{ value }</>
                     )}
                     value={ amount ? amount : 0 }
                     decimalScale={2}
@@ -150,7 +151,8 @@ function Step4(props) {
                     displayType={"text"}
                     prefix='$'
                 />
-            </span>
+                </span>
+            </strong>
         </button>
 
     </form>

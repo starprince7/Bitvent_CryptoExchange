@@ -93,9 +93,9 @@ function Homepage({ crypto, fetchCrypto }) {
                                 <p>Fast and secure way to purchase or exchange cryptocurrencies</p>
                             </div>
 
-                            <div className="intro-btn">
+                            <div className="intro-btn sm-text-left">
                                 <a href='#Exchange' className="btn btn-primary">Buy crypto</a>
-                                <a href='#Exchange' className="btn btn-outline-primary">Sell crypto</a>
+                                {/* <a href='#Exchange' className="btn btn-outline-primary">Sell crypto</a> */}
                                 <div className="arrow_icon_container text-center mt-4 lg-d-none">
                                     <p>Scroll</p>
                                     <i class="fas fa-arrow-down bold text-secondary"></i>
@@ -114,6 +114,14 @@ function Homepage({ crypto, fetchCrypto }) {
 
             <div id="Exchange" className="price-grid section-padding container_exchange">
                 <div className="container">
+                    <div className="text-center mt-4 mb-4">
+                        <h2 className="text-center">Simply buy or sell with ease.</h2>
+                        <p>Use your credit card, payment app, or bank
+                            account to buy Bitcoin,
+                            Ethereum, Dogecoin and other select cryptocurrencies,<br /> it only takes
+                            3 easy and simple steps.
+                        </p>
+                    </div>
                     <div className=" mb-5 col-12 d-flex align-items-center justify-content-center">
                     {/* Exchange Form ============================ */}
                         <div data-aos="fade-up" className="intro-form-exchange">
@@ -137,7 +145,7 @@ function Homepage({ crypto, fetchCrypto }) {
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div data-aos="zoom-in-up" className="card">
+                            <div className="card">
                                 <div className="card-header">
                                     <div className="media">
                                         <span><i className="cc BTC"></i></span>
@@ -185,7 +193,7 @@ function Homepage({ crypto, fetchCrypto }) {
                         </div>
                         
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div data-aos="zoom-in-down" className="card">
+                            <div className="card">
                                 <div className="card-header">
                                     <div className="media">
                                         <span><i className="cc ETH"></i></span>
@@ -234,7 +242,7 @@ function Homepage({ crypto, fetchCrypto }) {
                         </div>
 
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div data-aos="zoom-in-down" className="card">
+                            <div className="card">
                                 <div className="card-header">
                                     <div className="media">
                                         <span><i className="cc LTC"></i></span>
@@ -282,7 +290,7 @@ function Homepage({ crypto, fetchCrypto }) {
                         </div>
 
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div data-aos="zoom-in-down" className="card">
+                            <div className="card">
                                 <div className="card-header">
                                     <div className="media crypto_coin_logo">
                                         <img src={ BNB } alt="coin logo" />
@@ -330,7 +338,7 @@ function Homepage({ crypto, fetchCrypto }) {
                         </div>
 
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div data-aos="zoom-in-down" className="card">
+                            <div className="card">
                                 <div className="card-header">
                                     <div className="media">
                                         <span><i className="cc XRP"></i></span>
@@ -379,7 +387,7 @@ function Homepage({ crypto, fetchCrypto }) {
 
 
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div data-aos="zoom-in-down" className="card">
+                            <div className="card">
                                 <div className="card-header">
                                     <div className="media">
                                         <span><i className="cc ADA"></i></span>
@@ -427,7 +435,7 @@ function Homepage({ crypto, fetchCrypto }) {
                         </div>
 
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div data-aos="zoom-in-down" className="card">
+                            <div className="card">
                                 <div className="card-header">
                                     <div className="media">
                                         <span><i className="cc DOGE"></i></span>
@@ -474,7 +482,7 @@ function Homepage({ crypto, fetchCrypto }) {
                         </div>
 
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                            <div data-aos="zoom-in-down" className="card">
+                            <div className="card">
                                 <div className="card-header">
                                     <div className="media crypto_coin_logo">
                                         <img src={ SOL } alt="coin logo" />

@@ -21,10 +21,10 @@ async function sendEmailVerificationCode(customer, cB) {
   
   // Send The Reg. Mail Here
   const mail_options = {
-    from: "Coinvent <no-reply@zenithbrokers.co.uk>",
+    from: "Bitvent.io <no-reply@zenithbrokers.co.uk>",
     to: customer.email,
     subject: "Verify your Email",
-    text: `Hello please use this code - "${customer.verification_code}" - to verify your email address`,
+    text: `Hello please use this code [ ${customer.verification_code} ] to verify your email address`,
   };   
 
   try {

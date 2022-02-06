@@ -1,5 +1,6 @@
 import React, { } from 'react';
 import { Link } from 'react-router-dom';
+import Bitvent_WhiteLogo from '../../images/Bitvent-logo/bitvent-logo-alone-white.svg'
 
 
 
@@ -10,12 +11,11 @@ function Bottom() {
             <div data-aos="fade-up" data-aos-offset="50" data-aos-delay="5" data-aos-duration="500" className="bottom section-padding">
                 <div className="container">
                     <div className="row">
-                        <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 text-center">
                             <div className="bottom-logo">
-                                <img className="pb-3" src={require('./../../images/logo-white.png')} alt="" />
-
-                                <p>We are here to guide you at every step of your investment.</p>
+                                <img className="pb-4" src={Bitvent_WhiteLogo} alt="Logo"/>
                             </div>
+                            <h1>Site map</h1>
                         </div>
                         <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6">
                             <div className="bottom-widget">

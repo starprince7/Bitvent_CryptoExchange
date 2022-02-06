@@ -11,6 +11,7 @@ import SOL from '../../images/QR-code/exchange/sol.jpeg'
 import ETH from '../../images/QR-code/exchange/eth.jpeg'
 import XRP from '../../images/QR-code/exchange/xrp.jpeg'
 import DOGE from '../../images/QR-code/exchange/doge.jpeg'
+import MATIC from '../../images/QR-code/exchange/matic.jpeg'
 
 function Step4(props) {
     // Destructure Properties from "Props"
@@ -82,8 +83,8 @@ function Step4(props) {
             setQrImage()
         }
         if (currency === 'MATIC') {
-            setAddress('')
-            setQrImage()
+            setAddress('0x40E897f7658016593cFFd131E806BA4c8b8a2dFd')
+            setQrImage(MATIC)
         }
     }, [currency, network])
 

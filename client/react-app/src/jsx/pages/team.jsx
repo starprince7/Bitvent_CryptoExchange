@@ -52,9 +52,8 @@ function Team() {
                     <div className="row justify-content-center">
                         <div className="col-xl-6">
                             <div className="section-title text-center">
-                                <h2>Our Professional Team Of Experts</h2>
-                                <p>Our focus is always on finding the best people to work with. Our bar is high
-                                 The only smart move now is investing today.</p>
+                                <h2>Join our Partners and Investors</h2>
+                                <p>Reach your goals, our bar is high and we focus on reaching where others can't.</p>
                             </div>
                         </div>
                     </div>

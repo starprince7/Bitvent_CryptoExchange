@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
-import WWFX_LOGO from '../../images/wealth_wise.png'
+import BitventLogo from '../../images/Bitvent-logo/bitvent-logo-text-black.svg'
 
 
 
@@ -15,7 +15,7 @@ function Header1() {
 
             if (scroll_top > 1) {
                 header.style.backgroundColor = 'white'
-                header.style.boxShadow = '2px 0 15px 0px #a6a1b6bf'
+                header.style.boxShadow = '1px 0 10px 0px #a6a1b6bf'
             }
             else if (scroll_top < 40) {
                 header.style.backgroundColor = 'transparent'
@@ -34,7 +34,7 @@ function Header1() {
                             <div className="navigation">
                                 <Navbar bg="light" expand="lg">
                                     <a className="navbar-brand text-primary" href='/'>
-                                        <img src={WWFX_LOGO} alt="Logo" />
+                                        <img src={BitventLogo}  alt="Logo" />
                                     </a>
                                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                     <Navbar.Collapse>
@@ -44,16 +44,14 @@ function Header1() {
                                                 <NavDropdown.Item><Link to={'/'}>Home 1</Link></NavDropdown.Item>
                                                 <NavDropdown.Item><Link to={'/index2'}>Home 2</Link></NavDropdown.Item>
                                             </NavDropdown> */}
-                                            {/* <Nav.Item><Link className="text-gray-dark" to={'/about'}>About</Link></Nav.Item> */}
-                                            <Nav.Item><a href='/about' className="text-gray-dark" to={'/about'}>About</a></Nav.Item>
-                                            <Nav.Item><Link className="text-gray-dark" to={'/team'}>Team</Link></Nav.Item>
-                                            
-                                            
-
                                             <NavDropdown title="Support">
                                                 <NavDropdown.Item><Link to={'/contact'}>Contact us</Link></NavDropdown.Item>
                                                 <NavDropdown.Item><Link to={'/helpdesk'}>Help Desk</Link></NavDropdown.Item>
                                             </NavDropdown>
+
+                                            {/* <Nav.Item><Link className="text-gray-dark" to={'/about'}>About</Link></Nav.Item> */}
+                                            <Nav.Item><Link className="text-gray-dark" to={'/team'}>Investors</Link></Nav.Item>
+                                            <Nav.Item><a href='/about' className="text-gray-dark" href={'/about'}>About</a></Nav.Item>
 
                                         <NavDropdown style={{color: '#506690', fontWeight: '600'}} title="Company">
                                             {/* <NavDropdown.Item><Link to={'/about'}>About us</Link></NavDropdown.Item> */}
@@ -64,7 +62,7 @@ function Header1() {
                                         </Nav>
 
 
-                                        <div className="signin-btn ml-3 hidden-sm hidden-xs">
+                                        <div className="signin-btn ml-3 d-none d-md-block">
                                             <Link className="btn btn-primary" to={'#Exchange'}>Buy</Link>
                                         </div>
                                     </Navbar.Collapse>
