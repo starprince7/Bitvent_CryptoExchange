@@ -2,7 +2,7 @@ const path = require('path');
 const ejs = require("ejs");
 const Mailgun = require('mailgun.js')
 const formData = require('form-data')
-require('dotenv').config()
+// require('dotenv').config()
 
 const mailgun = new Mailgun(formData)
 const MY_DOMAIN = process.env.DOMAIN
