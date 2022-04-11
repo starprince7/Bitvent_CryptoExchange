@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Homepage from './pages/index';
+// import Homepage from './pages/index';
 import Price from './pages/price';
 import Wallet from './pages/wallet';
 import Blog from './pages/blog';
@@ -28,6 +28,7 @@ import History from './pages/history';
 import Demo from './pages/demo';
 import { Sugar } from 'react-preloaders';
 // Core imports below
+const Homepage = React.lazy(()=> import('./pages/index'));
 const Homepage2 = React.lazy(()=> import('./pages/index2'));
 const About = React.lazy(() => import("./pages/about"));
 const Faq = React.lazy(() => import("./pages/faq"));
