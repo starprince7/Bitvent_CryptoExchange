@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Web application for the exchanging of listed  cryptocurrencies.",
   "main": "app.js",
+  "engines": {
+    "node": "14.16.1"
+  },
   "scripts": {
     "start": "node app",
     "server": "nodemon app",
