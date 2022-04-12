@@ -36,7 +36,8 @@ function App() {
           <Index />
           <Loader />
           <ErrorPopup />
-          <Ripple customLoading={ loading } time={0} color={'#4d36a1'} />
+          <Ripple time={1000} color={'#4d36a1'} />
+          {/* <Ripple customLoading={ loading } time={0} color={'#4d36a1'} /> */}
         </div>
       </Stripe>
     </Provider>
