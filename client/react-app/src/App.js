@@ -17,7 +17,7 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    window.addEventListener('load', () => setLoading(false))
+    window.addEventListener('DOMContentLoaded', () => setLoading(false))
   }, [])
 
   useEffect(() => {

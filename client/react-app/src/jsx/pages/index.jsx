@@ -62,7 +62,7 @@ function Homepage({ crypto, fetchCrypto }) {
         // Call crypto data here, handled by the redux actions.
         fetchCrypto()
 
-        window.addEventListener('load', () => {
+        window.addEventListener('DOMContentLoaded', () => {
             setPageLoaded(true)
         })
     }, [])
